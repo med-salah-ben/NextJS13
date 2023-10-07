@@ -3,6 +3,7 @@
 import { addProductToDatabase } from "@/actions/serverActions";
 //import Product Schema
 import { Product } from "../../typings";
+import AddProductButton from "@/components/AddProductButton";
 
 export default async function Home() {
   //step 1 = for get  products
@@ -24,6 +25,7 @@ export default async function Home() {
     <main>
       <h1 className="text-3xl font-bold text-center">Products Warehouse</h1>
       {/* step 3 = Add new product : use addProductToDatabase action */}
+      <AddProductButton />
       <form
         action={addProductToDatabase}
         className="flex flex-col gap-5 max-w-xl mx-auto p-5"

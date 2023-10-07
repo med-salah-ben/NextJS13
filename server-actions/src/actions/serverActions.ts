@@ -1,6 +1,6 @@
 "use server";
-// imports 
-import { revalidateTag } from "next/cache";
+// imports
+import { revalidatePath, revalidateTag } from "next/cache";
 import { Product } from "../../typings";
 
 //step 1 = Add new product action
@@ -23,5 +23,9 @@ export const addProductToDatabase = async (e: FormData) => {
     },
   });
   //step 3 = for get new product
+  //revalidate just tag not all page
   revalidateTag("products");
+  //we can revalidate path or tag
+  //revalidate all page
+  //   revalidatePath("/")
 };
